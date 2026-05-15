@@ -17,6 +17,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
+    "prepare": "tsc -p tsconfig.build.json",
     "prepublishOnly": "npm run build",
     "dev:init": "npm run build && node dist/init.js",
     "inspect": "npx @modelcontextprotocol/inspector node dist/server.js",
