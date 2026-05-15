@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Test coverage / cache
+coverage/
+.nyc_output/
+.vitest-cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# MCP runtime output (the server saves generated images under <cwd>/Generations/)
+Generations/
+
+# OS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# Optional caches
+.cache/
+.parcel-cache/
+.turbo/
+
+# Local config the user generates with `image-generation-init`
+# (lives in ~/.automwise/gimage.json so normally outside the repo, but ignore
+# anything that might land here by mistake)
+.automwise/
+
+# Inquirer / Chalk shouldn't write here, but just in case
+*.tmp
