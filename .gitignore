@@ -58,3 +58,6 @@ Desktop.ini
 
 # Inquirer / Chalk shouldn't write here, but just in case
 *.tmp
+
+# npm pack output (uploaded to GitHub Releases instead of committed)
+*.tgz

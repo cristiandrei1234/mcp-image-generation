@@ -28,7 +28,6 @@ Plus 12 skills (markdown files) the AI loads on demand to pick the right tool wi
 ## Prerequisites
 
 - **Node.js ≥ 18** (Node 20 or 22 recommended) — <https://nodejs.org>
-- **Git** (so npm can clone the repo during install) — usually preinstalled on macOS/Linux; on Windows install via <https://git-scm.com> or `winget install Git.Git`
 - **Google AI Studio API key** — get one free at <https://aistudio.google.com/apikey>
   - The key starts with `AIza...`
   - Billing must be enabled in Google AI Studio to use Nano Banana Pro (Flash works on the free tier)
@@ -39,14 +38,16 @@ Plus 12 skills (markdown files) the AI loads on demand to pick the right tool wi
 ## Install (one command, all platforms)
 
 ```bash
-npm install -g github:cristiandrei1234/mcp-image-generation
+npm install -g https://github.com/cristiandrei1234/mcp-image-generation/releases/latest/download/image-generation.tgz
 ```
 
-That's it. npm clones the repo, builds it, and puts the three commands on your `PATH`:
+That's it. npm downloads the prebuilt tarball from the latest GitHub Release and puts the three commands on your `PATH`:
 
 - `image-generation` — the MCP server (stdio)
 - `image-generation-init` — interactive setup (asks for API key, default aspect, default resolution)
 - `image-generation-install-skills` — copies the 12 skills into your Claude Code skills directory
+
+> **Why a tarball URL and not `npm install -g github:...`?** Installing globally from a git source on Windows triggers an upstream npm bug with `@google/genai`'s `preinstall` script (ENOENT spawning `cmd.exe`). The release tarball avoids that codepath entirely.
 
 ### Platform notes
 
@@ -68,10 +69,10 @@ That's it. npm clones the repo, builds it, and puts the three commands on your `
 ### Update later
 
 ```bash
-npm install -g github:cristiandrei1234/mcp-image-generation
+npm install -g https://github.com/cristiandrei1234/mcp-image-generation/releases/latest/download/image-generation.tgz
 ```
 
-Same command. npm re-clones the latest `main`, rebuilds, replaces the bins.
+Same command. npm fetches the newest published release and replaces the bins.
 
 ### Uninstall
 
@@ -239,7 +240,8 @@ If you want to hack on the source rather than just use it:
 ```bash
 git clone https://github.com/cristiandrei1234/mcp-image-generation.git
 cd mcp-image-generation
-npm install              # installs deps + auto-builds via the `prepare` script
+npm install              # installs deps
+npm run build            # compile src/ → dist/
 node dist/init.js        # local setup
 ```
 
