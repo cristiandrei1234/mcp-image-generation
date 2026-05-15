@@ -3,8 +3,7 @@ node_modules/
 .pnpm-store/
 
 # Build output
-# dist/ is intentionally committed so that `npm install -g github:user/repo`
-# works without running a TypeScript build during install (no prepare script).
+dist/
 build/
 *.tsbuildinfo
 
